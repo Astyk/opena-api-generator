@@ -1,0 +1,1925 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ShopRoller AdminAPI V1",
+    "description": "ShopRoller AdminAPI JSON:API Specification",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "sven@shoproller.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ShopRoller/AdminApi/1.1.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "https://virtserver.swaggerhub.com/sven.shoproller.com/AdminApi/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "authentication",
+      "description": "Authentication related requests."
+    },
+    {
+      "name": "catalog",
+      "description": "Catalog related requests."
+    },
+    {
+      "name": "inventory",
+      "description": "Inventory related requests."
+    }
+  ],
+  "paths": {
+    "/inventory": {
+      "get": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "COMING SOON",
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "location"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory/stocktaking": {
+      "post": {
+        "tags": [
+          "inventory"
+        ],
+        "description": "Update Inventory Levels.",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/inventoryStocktaking"
+        },
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_422"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations": {
+      "get": {
+        "tags": [
+          "inventory"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "inventory"
+        ],
+        "description": "Add new Location.",
+        "requestBody": {
+          "description": "id attribute should not be filled.",
+          "content": {
+            "application/vnd.api+json": {
+              "schema": {
+                "$ref": "#/components/schemas/body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_422"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/{id}": {
+      "get": {
+        "tags": [
+          "inventory"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Location `id`.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "inventory"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Location `id`.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.api+json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "success"
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "parameters": [
+          {
+            "name": "filter[id]",
+            "in": "query",
+            "description": "Only return products with these `id` values.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "example": [
+                "12345",
+                "67890"
+              ],
+              "items": {
+                "type": "string",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "filter[sku]",
+            "in": "query",
+            "description": "Only return products with this `sku` code.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "example": [
+                "123456789",
+                "987654321"
+              ],
+              "items": {
+                "type": "string",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "filter[category]",
+            "in": "query",
+            "description": "Only return products with this `category.id`.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "format": "int64",
+              "example": "12345"
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "Get page number `number`",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Return at most this many results. Default and maximum values depends on shop configuration.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 40,
+              "minimum": 1,
+              "type": "integer",
+              "default": 40
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "catalog"
+        ],
+        "description": "Add new Product.",
+        "requestBody": {
+          "description": "id attribute should not be filled.",
+          "content": {
+            "application/vnd.api+json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_422"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product `id`.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "123456789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_2"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "catalog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product `id`.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.api+json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_3"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "success"
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth": {
+      "post": {
+        "tags": [
+          "authentication"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "query",
+            "description": "API KEY can be generated in Admin > Settings > Api Keys section.",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "success",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required data",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_1"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_default"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "locationResourceIdentifier": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resourceIdentifier"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "location",
+                "enum": [
+                  "location"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "locationResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "$ref": "#/components/schemas/locationResourceIdentifier"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "$ref": "#/components/schemas/locationResource_attributes"
+              }
+            }
+          }
+        ]
+      },
+      "inventoryLevelResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "inventory_level",
+                "enum": [
+                  "inventory_level"
+                ]
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/inventoryLevelResource_attributes"
+              },
+              "relationships": {
+                "$ref": "#/components/schemas/inventoryLevelResource_relationships"
+              }
+            }
+          }
+        ]
+      },
+      "productImageResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "image",
+                "enum": [
+                  "image"
+                ]
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/productImageResource_attributes"
+              }
+            }
+          }
+        ]
+      },
+      "productResourceIdentifier": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resourceIdentifier"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "product",
+                "enum": [
+                  "product"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "productResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "product",
+                "enum": [
+                  "product"
+                ]
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/productResource_attributes"
+              },
+              "relationships": {
+                "$ref": "#/components/schemas/productResource_relationships"
+              }
+            }
+          }
+        ]
+      },
+      "userAuthTokenResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "user_auth_token",
+                "enum": [
+                  "user_auth_token"
+                ]
+              },
+              "id": {
+                "example": "abcdef123"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/userAuthTokenResource_attributes"
+              }
+            }
+          }
+        ]
+      },
+      "userResource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "user"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/userResource_attributes"
+              }
+            }
+          }
+        ]
+      },
+      "address": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string",
+            "example": "Veerenni 24"
+          },
+          "street2": {
+            "type": "string",
+            "description": "Additional comments about the location.",
+            "example": "Large gray building, 4th floor."
+          },
+          "zipcode": {
+            "type": "string",
+            "example": "10135"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name",
+            "example": "Tallinn"
+          },
+          "county": {
+            "type": "string",
+            "description": "County name",
+            "example": "Harjumaa"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country name",
+            "example": "Estonia"
+          },
+          "country_code": {
+            "type": "string",
+            "example": "EE"
+          },
+          "address": {
+            "type": "string",
+            "description": "Full address",
+            "example": "Veerenni 24, 10135 Tallinn, Harjumaa, Estonia"
+          }
+        }
+      },
+      "notification": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "info",
+              "success",
+              "error",
+              "warning"
+            ]
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Identifies a specific error condition. Intended for programmatic parsing\nand will not change for a given error condition.\n",
+            "example": "XXX"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short description of the problem. Intended as a helpful message to users.\n",
+            "example": "Error message for the user"
+          },
+          "detail": {
+            "type": "string",
+            "description": "A more detailed description of the problem. Intended as a helpful message\nto developers.\n",
+            "example": "A helpful description for the developer"
+          },
+          "meta": {
+            "type": "object",
+            "description": "Additional information about the error. For example a list of invalid form\nfields etc.\n"
+          }
+        }
+      },
+      "selfLink": {
+        "required": [
+          "self"
+        ],
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "description": "As per the JSON:API specification.",
+            "format": "uri"
+          }
+        },
+        "readOnly": true
+      },
+      "relatedLink": {
+        "required": [
+          "related"
+        ],
+        "type": "object",
+        "properties": {
+          "related": {
+            "type": "string",
+            "description": "As per the JSON:API specification.",
+            "format": "uri"
+          }
+        },
+        "readOnly": true
+      },
+      "relationshipDataToMany": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/resourceIdentifier"
+            }
+          }
+        }
+      },
+      "relationshipDataToManyNullable": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/resourceIdentifier"
+            }
+          }
+        },
+        "nullable": true
+      },
+      "relationshipDataToOne": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/resourceIdentifier"
+              }
+            ]
+          }
+        }
+      },
+      "relationshipDataToOneNullable": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/resourceIdentifier"
+              }
+            ]
+          }
+        },
+        "nullable": true
+      },
+      "relationshipLinkSelf": {
+        "required": [
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/selfLink"
+              }
+            ]
+          }
+        }
+      },
+      "relationshipLinkRelated": {
+        "required": [
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/relatedLink"
+              }
+            ]
+          }
+        }
+      },
+      "resource": {
+        "required": [
+          "attributes",
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "product"
+          },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
+          "attributes": {
+            "type": "object"
+          }
+        }
+      },
+      "resourceIdentifier": {
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "product"
+          },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inventoryLevelResource"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/locationResource"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_401": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "401"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Unauthorised access"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Access token is missing or invalid"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_default": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_400": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "400"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Bad request"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Missing resource id"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_422": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "422"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Operation cannot be performed with given resource"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Invalid resource"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/locationResource"
+            }
+          }
+        }
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/locationResource"
+          }
+        }
+      },
+      "inline_response_404": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "404"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Requested resource not found"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Resource with ID:X not found"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "body_1": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/locationResource"
+          }
+        }
+      },
+      "inline_response_200_2": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productResource"
+            }
+          }
+        }
+      },
+      "body_2": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/productResource"
+          }
+        }
+      },
+      "body_3": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/productResource"
+          }
+        }
+      },
+      "inline_response_201": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/userAuthTokenResource"
+                },
+                {
+                  "$ref": "#/components/schemas/userResource"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "inline_response_401_1": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "401"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Invalid Login"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Invalid api_key or inactive user."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "locationResource_attributes": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Main Warehouse"
+          },
+          "is_for_sale": {
+            "type": "boolean",
+            "description": "If true then inventory quantities are added to product’s total inventory quantity.",
+            "default": true
+          },
+          "is_main_stock": {
+            "type": "boolean",
+            "description": "Sales orders are sent to main stock. There can only be one main stock. If you set is_main_stock to true then the previous main stock will be updated and it's is_main_stock will be set to false."
+          },
+          "status": {
+            "type": "string",
+            "description": "Disabled locations are excluded from total inventory calculations, pickup locations etc.",
+            "enum": [
+              "enabled",
+              "disabled"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "modified_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Used to map resources between integrated system and ShopRoller. External ID is unique in the scope of an API KEY.",
+            "example": "1234"
+          }
+        }
+      },
+      "inventoryLevelResource_attributes": {
+        "type": "object",
+        "properties": {
+          "availability": {
+            "type": "string",
+            "readOnly": true,
+            "enum": [
+              "in_stock",
+              "out_of_stock"
+            ]
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double",
+            "example": 10
+          }
+        }
+      },
+      "inventoryLevelResource_relationships": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/relationshipDataToOne"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/locationResourceIdentifier"
+                  }
+                }
+              }
+            ]
+          },
+          "product": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/relationshipDataToOne"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/productResourceIdentifier"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "productImageResource_attributes": {
+        "required": [
+          "filename"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Image"
+          },
+          "filename": {
+            "type": "string",
+            "example": "path/to/image.png"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Product's main image that is displayed in catalog view.",
+            "default": false
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "readOnly": true,
+            "example": "https://mystore.com/media/path/to/image.png"
+          }
+        }
+      },
+      "productResource_attributes": {
+        "required": [
+          "sku",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "barcode": {
+            "type": "string",
+            "description": "EAN formatted barcode",
+            "example": "12345678"
+          },
+          "discount_amount": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5
+          },
+          "discount_percentage": {
+            "type": "number",
+            "format": "float"
+          },
+          "long_description": {
+            "type": "string"
+          },
+          "max_order_quantity": {
+            "type": "number",
+            "format": "float"
+          },
+          "min_order_quantity": {
+            "type": "number",
+            "format": "float"
+          },
+          "order_decimal_places": {
+            "type": "integer",
+            "description": "Number of decimal places that can be ordered. 0-4",
+            "format": "int32"
+          },
+          "product_type": {
+            "type": "string",
+            "default": "product",
+            "enum": [
+              "product",
+              "matrix",
+              "variant"
+            ]
+          },
+          "regular_price": {
+            "type": "number",
+            "description": "Regular price excluding tax",
+            "format": "double"
+          },
+          "shipping_weight": {
+            "type": "number",
+            "description": "Shipping weight in KG."
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string",
+            "example": "product-1"
+          },
+          "title": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "modified_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Used to map resources between integrated system and ShopRoller. External ID is unique in the scope of an API KEY.",
+            "example": "1234"
+          }
+        }
+      },
+      "productResource_relationships": {
+        "type": "object",
+        "properties": {
+          "images": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/relationshipLinkSelf"
+              },
+              {
+                "$ref": "#/components/schemas/relationshipLinkRelated"
+              },
+              {
+                "$ref": "#/components/schemas/relationshipDataToManyNullable"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/productImageResource"
+                    }
+                  }
+                },
+                "description": "List of all product images"
+              }
+            ]
+          }
+        }
+      },
+      "userAuthTokenResource_attributes": {
+        "type": "object",
+        "properties": {
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "userResource_attributes": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "errorResponse": {
+        "description": "Error",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_default"
+            }
+          }
+        }
+      },
+      "204NoContentResponse": {
+        "description": "Operation successful but no content to return.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "400BadRequestErrorResponse": {
+        "description": "Missing required data",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_400"
+            }
+          }
+        }
+      },
+      "401InvalidLoginErrorResponse": {
+        "description": "Unauthorized access",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_401_1"
+            }
+          }
+        }
+      },
+      "401UnauthorizedErrorResponse": {
+        "description": "Unauthorized access",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_401"
+            }
+          }
+        }
+      },
+      "403ForbiddenErrorResponse": {
+        "description": "Forbidden. Not sufficient rights.",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/error"
+                      },
+                      {
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "example": "403"
+                          },
+                          "title": {
+                            "type": "string",
+                            "example": "Forbidden"
+                          },
+                          "detail": {
+                            "type": "string",
+                            "example": "Not sufficient access rights."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "404NotFoundErrorResponse": {
+        "description": "Not found",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_404"
+            }
+          }
+        }
+      },
+      "422UnprocessableEntityResponse": {
+        "description": "Unprocessable Entity",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/inline_response_422"
+            }
+          }
+        }
+      },
+      "500InternalErrorResponse": {
+        "description": "Internal server error",
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/error"
+                      },
+                      {
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "example": "500"
+                          },
+                          "title": {
+                            "type": "string",
+                            "example": "Internal server error"
+                          },
+                          "detail": {
+                            "type": "string",
+                            "example": "Check logs for more information."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "inventoryStocktaking": {
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "location_id": {
+                      "type": "string",
+                      "example": "123"
+                    },
+                    "inventory": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "product_id": {
+                            "type": "string",
+                            "example": "1234"
+                          },
+                          "quantity": {
+                            "type": "number",
+                            "format": "double",
+                            "example": 10
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
